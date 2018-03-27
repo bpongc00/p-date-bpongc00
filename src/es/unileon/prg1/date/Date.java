@@ -1,0 +1,96 @@
+package es.unileon.prg1.date;
+
+public class Date {
+	private int day;
+	private int month;
+	private int year;
+	
+	public Date(int day, int month, int year){
+		if ( (1 <= month) && (month <= 12) ){
+			switch(month){
+				case 1: //next
+				case 3: //next
+				case 5: //next
+				case 7: //next
+				case 8: //next
+				case 10: //next
+				case 12:
+					if( (day<1) || (day>31) )
+						break;
+				case 4: //next
+				case 6: //next
+				case 9: //next
+				case 11:
+					if( (day<1) || (day>30) )
+						break;
+				case 2:
+					if( (day>=1) && (day<=28) ){
+						this.day = day;
+						this.month = month;
+						this.year = year;
+					}
+					break;
+				}
+		}
+		else
+			System.out.println("Introduce una fecha valida");
+	}
+	
+	public int getDay(){
+		return this.day;
+	}
+
+	public int getMonth(){
+		return this.month;
+	}
+	
+	public int getYear(){
+		return this.year;
+	}
+
+	void setDay(int nuevoDay){
+		this.day = nuevoDay;
+	}
+
+	void setMonth(int nuevoMonth){
+		this.month = nuevoMonth;
+	}
+	
+	void setYear(int nuevoYear){
+		this.year = nuevoYear;
+	}
+
+	boolean isSameDayIf(Date another){
+		if ( this.day == another.getYear() ){
+			return true;
+		}
+		return false;
+	}
+	
+	boolean isSameMonthIf(Date another){
+		if ( this.month == another.getMonth() ){
+			return true;
+		}
+		return false;
+	}
+
+	boolean isSameYearIf(Date another){
+		if ( this.year == another.getYear() ){
+			return true;
+		}
+		return false;
+	}
+
+	boolean isSameIf(Date another){
+		if ( ( (isSameDayIf(another)) && (isSameMonthIf(another)) )  && (isSameYearIf(another)) ){
+			return true;
+		}
+		return false;
+	}
+
+
+	public String toString(){
+		return this.day + "/" + this.month + "/" + this.year;
+	}
+
+}
