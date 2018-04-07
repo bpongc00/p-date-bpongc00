@@ -76,48 +76,12 @@ public class Date {
 		return this.year;
 	}
 
-	void setDay(int nuevoDay) throws DateException{
-			switch(this.month){
-			case 1: //next
-			case 3: //next
-			case 5: //next
-			case 7: //next
-			case 8: //next
-			case 10: //next
-			case 12:
-				if((day>=1) && (day<=31)){
-					this.day = nuevoDay;	
-				} else {
-					throw new DateException("Dia " + day + " no valido para el mes " + month + ", valores posibles entre 1 y 31.");
-				}
-				break;
-			case 4: //next
-			case 6: //next
-			case 9: //next
-			case 11:
-				if((day>=1) && (day<=30)){
-					this.day = nuevoDay;	
-				} else {
-					throw new DateException("Dia " + day + " no valido para el mes " + month + ", valores posibles entre 1 y 30.");
-				}
-				break;
-			case 2:
-				if((day>=1) && (day<=28)){
-					this.day = nuevoDay;
-				} else {
-					throw new DateException("Dia " + day + " no valido para el mes " + month + ", valores posibles entre 1 y 28.");
-				}
-				break;
-		}
-
+	void setDay(int nuevoDay){
+		this.day = nuevoDay;	
 	}
 
-	void setMonth(int nuevoMonth) throws DateException{
-		if (month < 1 || month > 12) {
-			throw new DateException("Mes " + month + " no valido" +
-					" Valores posibles entre 1 y 12.");
-		} else {
-			this.month = nuevoMonth;
+	void setMonth(int nuevoMonth){
+		this.month = nuevoMonth;
 	}
 	
 	void setYear(int nuevoYear){
